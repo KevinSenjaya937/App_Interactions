@@ -11,4 +11,7 @@
     <string name="camera_thumbnail">Camera Thumbnail</string>
     <string name="grayscale">Grayscale</string>
     <string name="camera_fragment">Camera Fragment</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="enter_latitude">Enter Latitude</string>
+    <string name="enter_longitude">Enter Longitude</string>
 </resources>

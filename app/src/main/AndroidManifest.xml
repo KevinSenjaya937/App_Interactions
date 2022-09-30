@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="au.edu.curtin.appinteractions">
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,5 +27,6 @@
         </activity>
     </application>
 
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+
 </manifest>
