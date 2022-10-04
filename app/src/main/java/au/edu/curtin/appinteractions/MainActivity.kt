@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
                     setCurrentFragment(locationFragment)
                 }
                 R.id.nav_camera -> {
+                    checkCameraPermissions()
+                    checkStoragePermissions()
                     setCurrentFragment(cameraFragment)
                 }
                 R.id.nav_contact -> {
@@ -54,6 +56,7 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION), 102)
         }
 
+
     }
 
     private fun checkCallPermissions() {
@@ -65,6 +68,18 @@ class MainActivity : AppCompatActivity() {
     private fun checkContactPermissions() {
         if(ActivityCompat.checkSelfPermission(this,android.Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_CONTACTS), 103)
+        }
+    }
+
+    private fun checkCameraPermissions() {
+        if(ActivityCompat.checkSelfPermission(this,android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA), 104)
+        }
+    }
+
+    private fun checkStoragePermissions() {
+        if(ActivityCompat.checkSelfPermission(this,android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE), 105)
         }
     }
 
