@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ContactFragment">
+
+
+    <TextView
+        android:id="@+id/idText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="User ID"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="User Name"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idText" />
+
+    <TextView
+        android:id="@+id/idHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="ID: "
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/idText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/emailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="User Email"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameText" />
+
+    <Button
+        android:id="@+id/searchContactBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Search Contacts"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idText" />
+
+    <TextView
+        android:id="@+id/emailHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Email: "
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/nameText"
+        app:layout_constraintTop_toBottomOf="@id/nameHelperText" />
+
+    <TextView
+        android:id="@+id/phoneNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="User Phone"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.613"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailText" />
+
+    <TextView
+        android:id="@+id/phoneNumberHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Phone: "
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.691"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/nameText"
+        app:layout_constraintTop_toBottomOf="@id/emailHelperText" />
+
+    <TextView
+        android:id="@+id/nameHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Name: "
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.694"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/nameText"
+        app:layout_constraintTop_toBottomOf="@id/idHelperText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
