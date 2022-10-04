@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="User Email"
-        android:textSize="25sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintLeft_toLeftOf="parent"

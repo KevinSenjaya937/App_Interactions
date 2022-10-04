@@ -2,10 +2,7 @@ package au.edu.curtin.appinteractions
 
 import android.app.Activity
 import android.content.ContentValues
-import android.content.Context.MODE_PRIVATE
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.net.Uri
@@ -18,11 +15,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import java.io.File
-import java.io.IOException
 
 
 class CameraFragment : Fragment() {
@@ -31,24 +24,11 @@ class CameraFragment : Fragment() {
     private lateinit var takePicBtn: Button
     private lateinit var grayscaleBtn: Button
     private lateinit var imageUri: Uri
-    private lateinit var photoFile: File
 
-
-    private val takeImageResult = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
-        if (isSuccess) {
-            imageUri.let { uri ->
-                cameraImage.setImageURI(uri)
-            }
-            var file = File(activity?.filesDir, "Images")
-            if (!file.exists()) {
-                file.mkdir()
-            }
-            file = File(file, "img.jpg")
+    private val takePhotoResult: ActivityResultLauncher<Intent> = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+            cameraImage.setImageURI(imageUri)
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -67,32 +47,26 @@ class CameraFragment : Fragment() {
         grayscaleBtn = view.findViewById(R.id.grayscaleBtn)
 
         takePicBtn.setOnClickListener {
-            takeImage()
+            takePhoto()
         }
 
         grayscaleBtn.setOnClickListener {
             val colorMatrix = ColorMatrix()
             colorMatrix.setSaturation(0F)
             val filter = ColorMatrixColorFilter(colorMatrix)
-            cameraImage.setColorFilter(filter)
+            cameraImage.colorFilter = filter
         }
     }
 
-    private fun takeImage() {
-        lifecycleScope.launchWhenStarted {
-            getTmpFileUri().let { uri ->
-                imageUri = uri
-                takeImageResult.launch(uri)
-            }
-        }
-    }
+    private fun takePhoto() {
+        val values = ContentValues()
+        values.put(MediaStore.Images.Media.TITLE, "New Picture")
+        values.put(MediaStore.Images.Media.DESCRIPTION, "From Camera")
+        imageUri = activity?.contentResolver?.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)!!
 
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
 
-    private fun getTmpFileUri(): Uri {
-        val tmpFile = File.createTempFile("tmp_image_file", ".png", requireActivity().filesDir).apply {
-            createNewFile()
-        }
-
-        return FileProvider.getUriForFile(requireContext(), "${BuildConfig.APPLICATION_ID}.provider", tmpFile)
+        takePhotoResult.launch(intent)
     }
 }

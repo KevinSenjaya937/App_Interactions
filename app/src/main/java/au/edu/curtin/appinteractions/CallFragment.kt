@@ -1,28 +1,20 @@
 package au.edu.curtin.appinteractions
 
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.core.app.ActivityCompat
-import java.util.jar.Manifest
+import androidx.fragment.app.Fragment
 
 
 class CallFragment : Fragment() {
 
     private lateinit var callBtn: Button
     private lateinit var phoneNumberText: EditText
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -23,7 +23,6 @@ class ContactFragment : Fragment() {
     private lateinit var emailText: TextView
     private lateinit var phoneText: TextView
     private lateinit var getContactBtn: Button
-    private val CONTACT_PICKUP_CODE = 2
 
     @SuppressLint("Range")
     private val resultLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -32,7 +31,7 @@ class ContactFragment : Fragment() {
 
             val cursor = contactUri?.let { uri ->
                 requireActivity().contentResolver.query(
-                    uri!!, null, null, null, null)
+                    uri, null, null, null, null)
             }
 
             val cursor2: Cursor?
@@ -80,11 +79,6 @@ class ContactFragment : Fragment() {
 
 
         }
-    }
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(

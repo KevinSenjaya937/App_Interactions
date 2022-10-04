@@ -8,7 +8,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.util.jar.Manifest
+
 
 class MainActivity : AppCompatActivity() {
 
